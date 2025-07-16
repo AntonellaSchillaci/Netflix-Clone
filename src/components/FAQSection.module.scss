@@ -1,0 +1,45 @@
+.faqSection {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .faqItem {
+    background-color: rgb(45, 45, 45);
+    margin-bottom: 12px;
+    padding: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: rgb(64, 64, 64);
+    }
+  }
+  
+  .question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .questionText {
+    font-weight: 400;
+    font-size: 18px;
+    font-family: 'Netflix Sans', sans-serif;
+  }
+  
+  .toggleIcon {
+    font-size: 30px;
+    font-weight: 400;
+    margin-left: 12px;
+  }
+  
+  .answer {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 1.4;
+    font-family: 'Netflix-sans', sans-serif;
+    white-space: pre-line;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+  }
+  
+  
