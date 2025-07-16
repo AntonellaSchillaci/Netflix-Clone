@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
+
+.topTitles {
+  position: relative;
+  padding:  0 20px;
+
+  .postersGrid {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+    position: relative;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .poster {
+      position: relative;
+      min-width: 110px;  
+      flex-shrink: 0;
+      border-radius: 8px;
+      overflow: visible;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+
+      .imgTop {
+        display: block;
+        width: 110px;
+        height: auto;
+        border-radius: 8px;
+      }
+
+      .number {
+        position: absolute;
+        bottom: -8px;
+        left: -8px;
+        font-size: 64px;
+        font-weight: 900;
+        font-family: "TikTok Sans", sans-serif;
+        color: black;
+        -webkit-text-stroke: 1.5px #fff;
+        pointer-events: none;
+        z-index: 2;
+      }
+    }
+  }
+
+  .scrollArrow {
+    position: absolute;
+    top: 50%;               
+    transform: translateY(-50%);
+    height: 110px;          
+    width: 20px;
+    background: rgba(57, 55, 55, 0.5);
+    border: none;
+    color: #d3d3d3;
+    font-size: 25px;
+    font-weight: 100;
+    padding: 0 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background: rgba(86, 85, 85, 0.8);
+    }
+
+    &.left {
+      left: -12px;    
+    }
+
+    &.right {
+      right: -12px;  
+    }
+  }
+}
