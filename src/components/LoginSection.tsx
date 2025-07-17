@@ -11,7 +11,7 @@ const LoginSection = () => {
         <form className={styles.form}>
           <input className={styles.loginInput} type="email" placeholder="Indirizzo email" />
           <div className={styles.btnLoginContainer}>
-            <button className={styles.btnLogin} type="submit">Inizia ＞</button>
+            <button id="startBtn2" className={styles.btnLogin} type="submit">Inizia ＞</button>
           </div>
         </form>
         </div>

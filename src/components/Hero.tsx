@@ -26,7 +26,7 @@ const Hero = () => {
 
         <form className={styles.form}>
           <input className={styles.loginInput} type="email" placeholder="Indirizzo email" />
-          <button className={styles.btnLogin} type="submit">Inizia ＞</button>
+          <button id="startBtn1" className={styles.btnLogin} type="submit">Inizia ＞</button>
         </form>
       </div>
 
