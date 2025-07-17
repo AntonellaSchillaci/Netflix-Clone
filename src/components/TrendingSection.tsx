@@ -1,5 +1,6 @@
 import FAQSection from "./FAQSection";
 import GradientCard from "./GradientCard";
+import LoginSection from "./LoginSection";
 import MoreReasons from "./MoreReasons";
 import TopTitles from "./TopTitles";
 import styles from "./TrendingSection.module.scss";
@@ -14,6 +15,7 @@ const TrendingSection = () => {
       <MoreReasons />
       <h3 className={styles.titleTop}>Domande frequenti</h3>
       <FAQSection />
+      <LoginSection />
     </section>
 
   );

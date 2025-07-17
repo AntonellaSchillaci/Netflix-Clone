@@ -7,7 +7,7 @@ const Hero = () => {
       <div className={styles.header}>
         <img src={logo} alt="Netflix" className={styles.logo} />
         <div className={styles.topRight}>
-          <select className={styles.languageSelect}>
+          <select className={styles.languageSelect} aria-label="Seleziona la lingua">
             <option value="" hidden >🈂︎</option>
             <option value="it">Italiano</option>
             <option value="en">English</option>
