@@ -80,3 +80,21 @@
     }
   }
 }
+
+//Mediaa Queries
+@media (min-width: 960px) {
+  .topTitles{
+    .postersGrid{
+      margin: 10px 100px;
+      .poster {
+        margin: 0 10px;
+        .imgTop {
+          width: 170px;
+        }
+      }
+    }
+    .scrollArrow {
+      margin: 0 70px;
+    }
+  }
+}
