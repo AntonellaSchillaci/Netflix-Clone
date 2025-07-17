@@ -114,3 +114,59 @@
   }
 }
 
+// Media Queries
+@media (min-width: 600px) {
+  .content {
+    max-width: 400px;
+
+    .form {
+      display: flex;
+      flex-direction: row; 
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+
+      .loginInput{
+        height: 20px;
+      }
+
+      .btnLogin{
+        width: 150px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  
+}
+
+@media (min-width: 960px) {
+  .content {
+    max-width: 600px;
+    .titleHero {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .content {
+    .paragraphHero:first-of-type {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .titleHero {
+      font-size: 3rem;
+    }
+
+    .form {
+      .loginInput {
+        height: 28px;
+      }
+      .btnLogin {
+        font-size: 1.2rem;
+    }
+  }
+}
+
+}
