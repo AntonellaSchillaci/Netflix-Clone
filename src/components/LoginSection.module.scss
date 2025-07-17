@@ -49,3 +49,23 @@
   }
 }
 }
+
+@media (min-width: 960px) {
+  .loginSection {
+    max-width: 600px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .loginSection {
+    .form {
+      .loginInput {
+        height: 28px;
+      }
+      .btnLogin {
+        font-size: 1.2rem;
+    }
+  }
+}
+
+}
