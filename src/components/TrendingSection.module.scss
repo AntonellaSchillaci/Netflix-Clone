@@ -36,4 +36,13 @@
  
     
   }
+
+  //Media Queries
+  @media (min-width: 960px) {
+    .trendingSection {
+      .titleTop {
+        font-size: 20px;
+      }
+    }
+  }
   
