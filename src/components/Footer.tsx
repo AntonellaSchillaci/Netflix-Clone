@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './Footer.module.scss';
 
 const footerLinks = [
@@ -24,35 +24,31 @@ const footerLinks = [
 ];
 
 const Footer: React.FC = () => {
-  const [showButton, setShowButton] = useState(false);
-  const lastScrollY = useRef(0);
+  const [showFooterBtn, setShowFooterBtn] = useState(true);
+  const observedButtons = useRef<HTMLElement[]>([]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      console.log(currentScrollY);
-      const windowHeight = window.innerHeight;
-      const docHeight = document.documentElement.scrollHeight;
-      const footerEl = document.getElementById('footerSection');
-      const footerTop = footerEl?.getBoundingClientRect().top ?? Infinity;
+    const buttonIds = ['startBtn1', 'startBtn2']; 
+    observedButtons.current = buttonIds
+      .map(id => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
 
-      const scrollingDown = currentScrollY > lastScrollY.current;
-
-      if (footerTop <= windowHeight) {
-        setShowButton(true);
-      } else if (scrollingDown) {
-        setShowButton(currentScrollY > 100);
-      } else {
-        setShowButton(currentScrollY > docHeight / 2);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const anyVisible = entries.some(entry => entry.isIntersecting);
+        setShowFooterBtn(!anyVisible);
+      },
+      {
+        root: null,
+        threshold: 0.1,
       }
+    );
 
-      lastScrollY.current = currentScrollY;
+    observedButtons.current.forEach(el => observer.observe(el));
+
+    return () => {
+      observedButtons.current.forEach(el => observer.unobserve(el));
     };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -88,7 +84,7 @@ const Footer: React.FC = () => {
 
         <button
           type="submit"
-          className={`${styles.btnLogin} ${showButton ? styles.show : styles.hide}`}
+          className={`${styles.btnLogin} ${showFooterBtn ? styles.show : styles.hide}`}
         >
           Inizia
         </button>
