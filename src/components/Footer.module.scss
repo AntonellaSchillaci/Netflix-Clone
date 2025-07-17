@@ -56,7 +56,6 @@
           color: #2a98ff;
         }
       }
-  
       .btnLogin {
         padding: 12px 20px;
         background-color: #e50914;
@@ -73,18 +72,21 @@
         pointer-events: none;
         transform: translateY(20px);
         transition: opacity 0.3s ease, transform 0.3s ease;
-      }
-      .show {
-        opacity: 1 !important;
-        pointer-events: auto;
-        transform: translateY(0) !important;
-      }
       
-      .hide {
-        opacity: 0;
-        pointer-events: none;
-        transform: translateY(20px);
-      }
+        &.show {
+          opacity: 1;
+          pointer-events: auto;
+          transform: translateY(0);
+        }
+      
+        &.hide {
+          opacity: 0;
+          pointer-events: none;
+          transform: translateY(20px);
+        }
     }
   }
+  }
+  
+
   

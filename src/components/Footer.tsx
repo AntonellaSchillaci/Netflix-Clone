@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styles from './Footer.module.scss';
 
 const footerLinks = [
@@ -14,7 +14,7 @@ const footerLinks = [
   'Condizioni di utilizzo',
   'Privacy',
   'Preferenze per i cookie',
-  'Informazioni sull\'azienda',
+  "Informazioni sull'azienda",
   'Contattaci',
   'Test di velocità',
   'Garanzia legale',
@@ -25,17 +25,18 @@ const footerLinks = [
 
 const Footer: React.FC = () => {
   const [showButton, setShowButton] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      console.log(currentScrollY);
       const windowHeight = window.innerHeight;
       const docHeight = document.documentElement.scrollHeight;
       const footerEl = document.getElementById('footerSection');
       const footerTop = footerEl?.getBoundingClientRect().top ?? Infinity;
 
-      const scrollingDown = currentScrollY > lastScrollY;
+      const scrollingDown = currentScrollY > lastScrollY.current;
 
       if (footerTop <= windowHeight) {
         setShowButton(true);
@@ -45,12 +46,14 @@ const Footer: React.FC = () => {
         setShowButton(currentScrollY > docHeight / 2);
       }
 
-      setLastScrollY(currentScrollY);
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   return (
     <footer id="footerSection" className={styles.footer}>
@@ -59,8 +62,8 @@ const Footer: React.FC = () => {
       </p>
 
       <div className={styles.linkGrid}>
-        {footerLinks.map((link, i) => (
-          <a key={i} href="#" className={styles.link}>
+        {footerLinks.map((link, index) => (
+          <a key={index} href="#" className={styles.link}>
             {link}
           </a>
         ))}
@@ -68,7 +71,9 @@ const Footer: React.FC = () => {
 
       <div className={styles.language}>
         <select className={styles.languageSelect} aria-label="Seleziona la lingua">
-          <option value="" hidden>🈂︎</option>
+          <option value="" hidden>
+            🈂︎
+          </option>
           <option value="it">Italiano</option>
           <option value="en">English</option>
         </select>
@@ -77,7 +82,8 @@ const Footer: React.FC = () => {
       <div className={styles.bottomNote}>
         <p>Netflix Italia</p>
         <p className={styles.recaptcha}>
-          Questa pagina è protetta da Google reCAPTCHA per garantire che tu non sia un bot. <a href="#">Scopri di più.</a>
+          Questa pagina è protetta da Google reCAPTCHA per garantire che tu non sia un bot.{' '}
+          <a href="#">Scopri di più.</a>
         </p>
 
         <button
