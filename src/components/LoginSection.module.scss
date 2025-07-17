@@ -49,3 +49,42 @@
   }
 }
 }
+
+@media (min-width: 600px) {
+  .loginSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .paragraphLogin {
+      text-align: center;
+    }
+    .form {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      gap: 10px;
+
+      .loginInput {
+        height: 25px;
+      }
+
+      .btnLoginContainer {
+        display: flex;
+        margin: 0; 
+
+        .btnLogin {
+          height: 45px;
+          width: auto;
+          padding: 0 20px;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+
+
